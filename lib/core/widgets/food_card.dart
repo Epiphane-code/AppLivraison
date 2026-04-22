@@ -53,7 +53,7 @@ Widget foodCard(Food food) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$${food.price.toStringAsFixed(2)}',
+                    'FCFA ${food.price.toStringAsFixed(2)}',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   Text(

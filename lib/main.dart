@@ -56,7 +56,47 @@ class _MyHomePageState extends State<MyHomePage> {
             )
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: MyColors.primarycolors,
+              ),
+              child: Container(
+                width: 200,
+                height: 100,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: Image.asset( 'assets/images/logo.png', height: 100,)
+                ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.delivery_dining_outlined),
+              title: Text('Livraison'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_basket_outlined),
+              title: Text('Boutique'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+            ListTile(
+              leading: Icon(Icons.fastfood_outlined),
+              title: Text('Food'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ],
+        ),
+      ),
        floatingActionButton: FloatingActionButton(
         onPressed: (){},
         backgroundColor: MyColors.primarycolors,
