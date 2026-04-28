@@ -1,9 +1,6 @@
+import 'package:app_express/utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'core/themes/colors.dart';
-import 'futures/screens/botique_page.dart';
-import 'futures/screens/food_page.dart';
-import 'futures/screens/home_page.dart';
-import 'futures/screens/livraison_page.dart';
+import 'package:app_express/utils/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,109 +30,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  late int _index = 0;
-    final List<Widget> _screens = [
-      const HomePage(),
-      const LivraisonPage(),
-      const BotiquePage(),
-      const FoodPage(),
-    ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Allo Express Niger'),
-        centerTitle: true,
-        backgroundColor: MyColors.primarycolors,
-        foregroundColor: const Color.fromARGB(255, 252, 250, 250),
-        actions: [
-            IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.account_circle_outlined),
-            )
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: MyColors.primarycolors,
-              ),
-              child: Container(
-                width: 200,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-                child: Image.asset( 'assets/images/logo.png', height: 100,)
-                ),
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              trailing: Icon(Icons.chevron_right),
-            ),
-            ListTile(
-              leading: Icon(Icons.delivery_dining_outlined),
-              title: Text('Livraison'),
-              trailing: Icon(Icons.chevron_right),
-            ),
-            ListTile(
-              leading: Icon(Icons.shopping_basket_outlined),
-              title: Text('Boutique'),
-              trailing: Icon(Icons.chevron_right),
-            ),
-            ListTile(
-              leading: Icon(Icons.fastfood_outlined),
-              title: Text('Food'),
-              trailing: Icon(Icons.chevron_right),
-            ),
-          ],
-        ),
-      ),
-       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        backgroundColor: MyColors.primarycolors,
-        child: const Icon(Icons.message, color: Color.fromARGB(255, 252, 250, 250),),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
-        onTap: (currentIndex){
-          setState(() {
-            _index = currentIndex;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.delivery_dining_outlined), label: 'livraison'),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_basket_outlined), label: 'boutique'),
-          BottomNavigationBarItem(icon: Icon(Icons.fastfood_outlined), label: 'food'),
-        ],
-        backgroundColor: const Color.fromARGB(255, 241, 226, 217),
-        selectedItemColor: MyColors.primarycolors,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        unselectedItemColor: const Color.fromARGB(255, 51, 22, 5),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal, color: Color.fromARGB(255, 51, 22, 5)),
-        showUnselectedLabels: true,
-        elevation: 15,
-
-      ),
-      body: Container(
-        color: MyColors.primarycolors,
-        child: Column(
-          children: [
-
-            Expanded(
-              child: _screens[_index]
-            ),
-            SizedBox(height: 10,)
-          ],
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: ThemeDataPerso.modeleclair,
+      darkTheme: ThemeDataPerso.modeledark,
+      initialRoute: MesRoutes.initialroute,
+      routes: MesRoutes.routes,
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => MyApp()),
     );
   }
 }

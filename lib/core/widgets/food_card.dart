@@ -4,68 +4,70 @@ import 'package:app_express/models/foods.dart';
 Widget foodCard(Food food) {
   return Column(
     children: [
-      Container(
-        margin: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
+      Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 10,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
               child: Image.network(
                 food.imageUrl,
-                height: 150,
                 width: double.infinity,
+                height: 150,
                 fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(child: CircularProgressIndicator());
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
+                },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                food.name,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+            Text(
+              ' ${food.name}',
+              style: TextStyle(fontWeight: FontWeight(1000)),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                food.description,
-                style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'FCFA ${food.price.toStringAsFixed(2)}',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: Text(' ${food.description}', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, ),)),
+                Text(
+                  '${food.restaurant} ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text(
-                    'Disponible: ${food.horaireDisponibilite}',
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(' FCA ${food.price} '),
+                Text('Overture: ${food.horaireDisponibilite} '),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Voir plus',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 7),
           ],
         ),
       ),
+      Divider(),
     ],
   );
 }

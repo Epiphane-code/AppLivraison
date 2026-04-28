@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 
 class Food {
@@ -7,6 +6,7 @@ class Food {
   final double price;
   final String imageUrl;
   final String horaireDisponibilite;
+  final String restaurant;
 
   Food({
     required this.name,
@@ -14,5 +14,6 @@ class Food {
     required this.price,
     required this.imageUrl,
     required this.horaireDisponibilite,
+    required this.restaurant
   });
 }

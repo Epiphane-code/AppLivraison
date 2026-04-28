@@ -12,7 +12,6 @@ class _BotiquePageState extends State<BotiquePage> {
   Widget build(BuildContext context) {
     return Container(
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 240, 221, 221),
                   borderRadius: BorderRadius.all( Radius.circular(30)),
                 ),
                 child:Center(
@@ -21,3 +20,4 @@ class _BotiquePageState extends State<BotiquePage> {
               );
   }
 }
+
