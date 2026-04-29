@@ -113,7 +113,7 @@ class _MyAppState extends State<MyApp> {
        floatingActionButton: FloatingActionButton(
         onPressed: (){},
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        child: const Icon(Icons.message, color: Color.fromARGB(255, 252, 250, 250),),
+        child: (index == 0)? Icon(Icons.message_outlined, color: Color.fromARGB(255, 252, 250, 250),): Icon(Icons.add) ,
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: index,

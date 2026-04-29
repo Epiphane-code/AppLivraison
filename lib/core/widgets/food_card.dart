@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app_express/models/foods.dart';
 
-Widget foodCard(Food food) {
+
+Widget foodCard(BuildContext context, Food food) {
   return Column(
     children: [
       Card(
@@ -53,11 +54,17 @@ Widget foodCard(Food food) {
               children: [
                 TextButton(
                   onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
                   child: Text(
                     'Voir plus',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: Theme.of(context).appBarTheme.foregroundColor,
                     ),
                   ),
                 ),

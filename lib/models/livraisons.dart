@@ -8,7 +8,10 @@ class Livraison {
   late String telephoneDestination;
   late String nature;
   late String? description;
+  late String? livreurID;
+  late String? contactLivreur;
   late String statut;
+  late String? dateCreate;
   late int? price;
 
   Livraison({
@@ -20,7 +23,10 @@ class Livraison {
     required this.telephoneDestination,
     required this.nature,
     this.description,
+    this.livreurID,
+    this.contactLivreur,
     required this.statut,
-    this.price
+    this.price,
+    this.dateCreate
   });
 }

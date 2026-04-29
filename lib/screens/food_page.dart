@@ -20,10 +20,10 @@ class _FoodPageState extends State<FoodPage> {
                 ),
       child: SingleChildScrollView(
         child: Column( children: [
-          foodCard(Food(name: 'Pizza', description: 'Delicious pizza with cheese and toppings', price: 9.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '10:00 - 22:00', restaurant: 'Amandine')),
-          foodCard(Food(name: 'Burger', description: 'Juicy burger with lettuce and tomato', price: 7.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '11:00 - 23:00', restaurant: 'Rawda')),
-          foodCard(Food(name: 'Sushi', description: 'Fresh sushi rolls with fish and rice', price: 12.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '12:00 - 21:00', restaurant: 'La Legende')),
-          foodCard(Food(name: 'Pasta', description: 'Creamy pasta with sauce and vegetables', price: 8.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '10:00 - 20:00', restaurant: '3EPICES')),
+          foodCard(context, Food(name: 'Pizza', description: 'Delicious pizza with cheese and toppings', price: 9.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '10:00 - 22:00', restaurant: 'Amandine')),
+          foodCard(context, Food(name: 'Burger', description: 'Juicy burger with lettuce and tomato', price: 7.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '11:00 - 23:00', restaurant: 'Rawda')),
+          foodCard(context, Food(name: 'Sushi', description: 'Fresh sushi rolls with fish and rice', price: 12.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '12:00 - 21:00', restaurant: 'La Legende')),
+          foodCard(context, Food(name: 'Pasta', description: 'Creamy pasta with sauce and vegetables', price: 8.99, imageUrl: 'https://images.pexels.com/photos/5112594/pexels-photo-5112594.jpeg', horaireDisponibilite: '10:00 - 20:00', restaurant: '3EPICES')),
         ],),
       ),
     );

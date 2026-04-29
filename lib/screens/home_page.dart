@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
       child: Center(
         child: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
-
           child: Column(
             children: [
                   Card(
@@ -73,7 +72,6 @@ class _HomePageState extends State<HomePage> {
                                   textAlign: TextAlign.center, style: TextStyle(
                                     color: Colors.white,
                                   ),
-                    
                                 ),
                               ),
                             ),
@@ -82,11 +80,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-
                    SizedBox(height: 10),
                   Divider(color: Theme.of(context).appBarTheme.backgroundColor, thickness: 1,),
                   SizedBox(height: 10),
-
                   Card(
                     child: Container(
                       constraints: BoxConstraints(maxWidth: 700),
@@ -130,18 +126,16 @@ class _HomePageState extends State<HomePage> {
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color:  Theme.of(context).appBarTheme.backgroundColor!,
-                                
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(10),
                                 ),
                               ),
                               child: Center(
                                 child: Text(
-                                  'Demander une livraison',
+                                  'Voir le menu',
                                   textAlign: TextAlign.center, style: TextStyle(
                                     color: Colors.white,
                                   ),
-                    
                                 ),
                               ),
                             ),
@@ -150,11 +144,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-
                   SizedBox(height: 10),
                   Divider(color: Theme.of(context).appBarTheme.backgroundColor, thickness: 1,),
                   SizedBox(height: 10),
-
                   Card(
                     child: Container(
                       constraints: BoxConstraints(maxWidth: 700),
@@ -164,23 +156,28 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Column(
                         children: [
-                          Container(
-                            color: Colors.white,
+                          ClipRRect(
                             child: Container(
-                              padding: EdgeInsets.all(20),
                               decoration: BoxDecoration(
-                                color: Theme.of(context).appBarTheme.backgroundColor!.withOpacity(0.2),
-                                borderRadius: BorderRadius.all(Radius.circular(3)),
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                              color: Colors.white,
                               ),
-                              child: Icon(
-                                Icons.delivery_dining_outlined,
-                                size: 30,
-                                color:  Theme.of(context).appBarTheme.backgroundColor,
+                              child: Container(
+                                padding: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).appBarTheme.backgroundColor!.withOpacity(0.2),
+                                  borderRadius: BorderRadius.all(Radius.circular(3)),
+                                ),
+                                child: Icon(
+                                  Icons.shopping_bag_outlined,
+                                  size: 30,
+                                  color:  Theme.of(context).appBarTheme.backgroundColor,
+                                ),
                               ),
                             ),
                           ),
                           Text(
-                            'Livreur',
+                            'Boutiques',
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -204,11 +201,10 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Demander une livraison',
+                                  'Voir les boutiques',
                                   textAlign: TextAlign.center, style: TextStyle(
                                     color: Colors.white,
                                   ),
-                    
                                 ),
                               ),
                             ),
@@ -217,7 +213,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-
                 ],
               ),
         ),
